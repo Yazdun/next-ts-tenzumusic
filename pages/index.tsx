@@ -1,7 +1,30 @@
-import { Layout } from '@/components'
+import { Layout, Post } from '@/components'
+import { IPost } from '@/interfaces/IPost'
 
-export default function Home() {
-  return <main>hello world</main>
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
+
+export const getStaticProps: GetStaticProps<{
+  posts: IPost[]
+}> = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const posts = await res.json()
+  return { props: { posts } }
+}
+
+export default function Home({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  return (
+    <main>
+      <ul className="grid gap-2">
+        {posts
+          .sort((a, b) => b.id - a.id)
+          .map(post => {
+            return <Post key={post.id} post={post} />
+          })}
+      </ul>
+    </main>
+  )
 }
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
