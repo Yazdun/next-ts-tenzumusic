@@ -29,15 +29,23 @@ interface IParams extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps = async context => {
   const { id } = context.params as IParams
-  const postRes = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${id}`,
-  )
-  const commentRes = await fetch(
-    `https://jsonplaceholder.typicode.com/comments?postId=${id}`,
-  )
-  const post = await postRes.json()
-  const comments = await commentRes.json()
-  return { props: { post, comments } }
+
+  const [postRes, commentsRes] = await Promise.all([
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`),
+    fetch(`https://jsonplaceholder.typicode.com/comments?postId=${id}`),
+  ])
+
+  const [post, comments] = await Promise.all([
+    postRes.json(),
+    commentsRes.json(),
+  ])
+
+  return {
+    props: {
+      post,
+      comments,
+    },
+  }
 }
 
 export default function Page({
