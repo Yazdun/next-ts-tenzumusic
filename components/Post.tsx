@@ -1,11 +1,17 @@
 import { IPost } from '@/interfaces/IPost'
 import Link from 'next/link'
 import { HiOutlineLink } from 'react-icons/hi'
+import { motion } from 'framer-motion'
+
+export const framer_opacity = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+}
 
 export const Post = (props: { post: IPost }) => {
   const { post } = props
   return (
-    <li className="max-w-full overflow-hidden">
+    <motion.li {...framer_opacity} className="max-w-full overflow-hidden">
       <Link
         href={`posts/${post.id}`}
         className="relative flex p-5 border-2 rounded-md dark:border-gray-700 dark:bg-black"
@@ -15,6 +21,6 @@ export const Post = (props: { post: IPost }) => {
           <HiOutlineLink className="text-lg" />
         </div>
       </Link>
-    </li>
+    </motion.li>
   )
 }
