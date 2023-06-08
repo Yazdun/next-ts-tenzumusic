@@ -1,4 +1,4 @@
-import { Layout } from '@/components'
+import { Comment, Layout } from '@/components'
 import { IComment } from '@/interfaces/IComment'
 
 import type {
@@ -55,9 +55,9 @@ export default function Page({
     <div className="grid gap-5">
       <h1 className="text-2xl font-bold capitalize">{post.title}</h1>
       <p className="text-slate-500 dark:text-gray-400">{post.body}</p>
-      <ul>
+      <ul className="grid gap-1">
         {comments.map((comment: IComment) => {
-          return <li key={comment.id}>{comment.body}</li>
+          return <Comment comment={comment} key={comment.id} />
         })}
       </ul>
     </div>
