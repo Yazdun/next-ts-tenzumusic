@@ -13,7 +13,7 @@ export const Post = (props: { post: IPost }) => {
   return (
     <motion.li {...framer_opacity} className="max-w-full overflow-hidden">
       <Link
-        href={`posts/${post.id}`}
+        href={`post/${post.id}`}
         className="relative flex p-5 border-2 rounded-md dark:border-gray-700 dark:bg-black"
       >
         <p className="truncate">{post.title}</p>
