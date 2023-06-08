@@ -1,6 +1,5 @@
-import { Layout, Post } from '@/components'
+import { Layout } from '@/components'
 import { IComment } from '@/interfaces/IComment'
-import { IPost } from '@/interfaces/IPost'
 
 import type {
   InferGetStaticPropsType,
@@ -53,15 +52,15 @@ export default function Page({
   comments,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <>
-      <h1 className="mb-5 text-2xl">{post.title}</h1>
+    <div className="grid gap-5">
+      <h1 className="text-2xl font-bold capitalize">{post.title}</h1>
       <p className="text-slate-500 dark:text-gray-400">{post.body}</p>
       <ul>
         {comments.map((comment: IComment) => {
           return <li key={comment.id}>{comment.body}</li>
         })}
       </ul>
-    </>
+    </div>
   )
 }
 
