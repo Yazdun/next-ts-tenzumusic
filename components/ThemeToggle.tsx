@@ -11,8 +11,8 @@ const framer_theme = {
   exit: { y: -25 },
 }
 
-export const ThemeToggle = () => {
-  const [mounted, setMounted] = useState(false)
+export const ThemeToggle: React.FC = () => {
+  const [mounted, setMounted] = useState<Boolean>(false)
   const { theme, setTheme } = useTheme()
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
   const dark_system_theme =
