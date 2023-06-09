@@ -32,6 +32,7 @@ export const ThemeToggle: React.FC = () => {
 
   return (
     <button
+      data-testid="theme-toggle"
       className="flex items-center justify-between p-2 overflow-hidden border-2 rounded-md dark:border-gray-600"
       onClick={toggleTheme}
     >

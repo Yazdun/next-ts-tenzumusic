@@ -54,8 +54,10 @@ export default function Page({
   return (
     <Container className="grid gap-5">
       <h1 className="text-2xl font-bold capitalize">{post.title}</h1>
-      <p className="text-slate-500 dark:text-gray-400">{post.body}</p>
-      <ul className="grid gap-1">
+      <p data-testid="post-body" className="text-slate-500 dark:text-gray-400">
+        {post.body}
+      </p>
+      <ul data-testid="post-comments" className="grid gap-1">
         {comments.map((comment: IComment) => {
           return <Comment comment={comment} key={comment.id} />
         })}
