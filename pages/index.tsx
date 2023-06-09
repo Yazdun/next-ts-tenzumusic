@@ -16,6 +16,8 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main>
+      <h1 className="sr-only">Tenzumusic blog post</h1>
+      <h2 className="mb-5">Latest blog posts:</h2>
       <ul className="grid gap-2">
         {posts
           .sort((a, b) => b.id - a.id)
