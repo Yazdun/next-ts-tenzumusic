@@ -1,4 +1,4 @@
-import { Layout, Post } from '@/components'
+import { Container, Layout, Post } from '@/components'
 import { IPost } from '@/interfaces/IPost'
 
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
@@ -15,7 +15,7 @@ export default function Home({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <main>
+    <Container>
       <h1 className="sr-only">Tenzumusic blog post</h1>
       <h2 className="mb-5">Latest blog posts:</h2>
       <ul className="grid gap-2">
@@ -25,7 +25,7 @@ export default function Home({
             return <Post key={post.id} post={post} />
           })}
       </ul>
-    </main>
+    </Container>
   )
 }
 

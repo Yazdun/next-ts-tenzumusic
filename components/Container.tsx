@@ -14,7 +14,7 @@ export const Container: React.FC<ContainerProps> = ({
   return (
     <Element
       {...rest}
-      className={`px-5 w-full max-w-screen-md m-auto ${className}`}
+      className={`p-5 w-full max-w-screen-md m-auto ${className}`}
     >
       {children}
     </Element>

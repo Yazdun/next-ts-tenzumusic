@@ -1,4 +1,4 @@
-import { Comment, Layout } from '@/components'
+import { Container, Comment, Layout } from '@/components'
 import { IComment } from '@/interfaces/IComment'
 
 import type {
@@ -52,7 +52,7 @@ export default function Page({
   comments,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="grid gap-5">
+    <Container className="grid gap-5">
       <h1 className="text-2xl font-bold capitalize">{post.title}</h1>
       <p className="text-slate-500 dark:text-gray-400">{post.body}</p>
       <ul className="grid gap-1">
@@ -60,7 +60,7 @@ export default function Page({
           return <Comment comment={comment} key={comment.id} />
         })}
       </ul>
-    </div>
+    </Container>
   )
 }
 
