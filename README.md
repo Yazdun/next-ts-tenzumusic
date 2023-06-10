@@ -12,7 +12,7 @@
   <p align="center">
     Frontend dev task
     <br />
-    <a href=""><strong>View the demo »</strong></a>
+    <a href="https://next-ts-tenzumusic.vercel.app/"><strong>View the demo »</strong></a>
     <br />
     <br />
     <a href="https://next-ts-tenzumusic.vercel.app/">View Demo</a>
@@ -39,7 +39,7 @@ can follow the below steps:
 
 1. Clone the project by running the following command on the terminal 🔽
    ```sh
-   git@github.com:Yazdun/next-ts-tenzumusic.git
+   git clone git@github.com:Yazdun/next-ts-tenzumusic.git
    ```
 2. Go into the project directory 🔽
 
