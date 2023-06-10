@@ -1,4 +1,4 @@
-import { Container, Navigation } from '@/components'
+import { Navigation } from '@/components'
 import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'

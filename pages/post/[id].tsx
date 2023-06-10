@@ -53,8 +53,13 @@ export default function Page({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Container className="grid gap-5">
-      <h1 className="text-2xl font-bold capitalize">{post.title}</h1>
-      <p data-testid="post-body" className="text-slate-500 dark:text-gray-400">
+      <h1 className="text-2xl font-bold capitalize" data-testid="post-title">
+        {post.title}
+      </h1>
+      <p
+        data-testid="post-body"
+        className="whitespace-pre-wrap text-slate-500 dark:text-gray-400"
+      >
         {post.body}
       </p>
       <ul data-testid="post-comments" className="grid gap-1">

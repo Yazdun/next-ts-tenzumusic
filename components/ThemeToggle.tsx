@@ -36,15 +36,23 @@ export const ThemeToggle: React.FC = () => {
       className="flex items-center justify-between p-2 overflow-hidden border-2 rounded-md dark:border-gray-600"
       onClick={toggleTheme}
     >
+      <div className="sr-only" data-testid="theme-toggle-aria">
+        {isDark ? 'activate light mode' : 'activate dark mode'}
+      </div>
       <AnimatePresence mode="wait" initial={false}>
-        <div className="sr-only">
-          {isDark ? 'activate light mode' : 'activate dark mode'}
-        </div>
-        <motion.span {...framer_theme} className="flex" key={theme}>
+        <motion.span
+          {...framer_theme}
+          data-testid="theme-toggle-icon"
+          className="flex"
+          key={theme}
+        >
           {isDark ? (
-            <RiMoonCloudyLine className="text-[1.2rem]" />
+            <RiMoonCloudyLine
+              data-testid="theme-toggle-dark"
+              className="text-[1.2rem]"
+            />
           ) : (
-            <FiSun className="text-[1.2rem]" />
+            <FiSun className="text-[1.2rem]" data-testid="theme-toggle-light" />
           )}
         </motion.span>
       </AnimatePresence>
