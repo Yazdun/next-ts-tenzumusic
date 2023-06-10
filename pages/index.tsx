@@ -1,4 +1,4 @@
-import { Container, Layout, Post } from '@/components'
+import { Container, Layout, Post, SEO } from '@/components'
 import { IPost } from '@/interfaces/IPost'
 
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
@@ -15,19 +15,22 @@ export default function Home({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Container>
-      <h1 className="sr-only" data-testid="home-heading">
-        Tenzumusic blog
-      </h1>
-      <h2 className="mb-5">Latest blog posts:</h2>
-      <ul className="grid gap-2">
-        {posts
-          .sort((a, b) => b.id - a.id)
-          .map(post => {
-            return <Post key={post.id} post={post} />
-          })}
-      </ul>
-    </Container>
+    <>
+      <SEO title="Tenzumusic" description="Tenzumusic blog" />
+      <Container>
+        <h1 className="sr-only" data-testid="home-heading">
+          Tenzumusic blog
+        </h1>
+        <h2 className="mb-5">Latest blog posts:</h2>
+        <ul className="grid gap-2">
+          {posts
+            .sort((a, b) => b.id - a.id)
+            .map(post => {
+              return <Post key={post.id} post={post} />
+            })}
+        </ul>
+      </Container>
+    </>
   )
 }
 

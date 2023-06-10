@@ -1,4 +1,4 @@
-import { Container, Comment, Layout } from '@/components'
+import { Container, Comment, Layout, SEO } from '@/components'
 import { IComment } from '@/interfaces/IComment'
 
 import type {
@@ -52,22 +52,25 @@ export default function Page({
   comments,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Container className="grid gap-5">
-      <h1 className="text-2xl font-bold capitalize" data-testid="post-title">
-        {post.title}
-      </h1>
-      <p
-        data-testid="post-body"
-        className="whitespace-pre-wrap text-slate-500 dark:text-gray-400"
-      >
-        {post.body}
-      </p>
-      <ul data-testid="post-comments" className="grid gap-1">
-        {comments.map((comment: IComment) => {
-          return <Comment comment={comment} key={comment.id} />
-        })}
-      </ul>
-    </Container>
+    <>
+      <SEO title={post.title} description={post.body} />
+      <Container className="grid gap-5">
+        <h1 className="text-2xl font-bold capitalize" data-testid="post-title">
+          {post.title}
+        </h1>
+        <p
+          data-testid="post-body"
+          className="whitespace-pre-wrap text-slate-500 dark:text-gray-400"
+        >
+          {post.body}
+        </p>
+        <ul data-testid="post-comments" className="grid gap-1">
+          {comments.map((comment: IComment) => {
+            return <Comment comment={comment} key={comment.id} />
+          })}
+        </ul>
+      </Container>
+    </>
   )
 }
 
