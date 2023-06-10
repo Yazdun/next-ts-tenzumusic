@@ -16,7 +16,10 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <SEO title="Tenzumusic" description="Tenzumusic blog" />
+      <SEO
+        title="Tenzumusic | Blog"
+        description="neque unde voluptatem iure odio excepturi ipsam ad id ipsa sed expedita error quam voluptatem tempora necessitatibus suscipit culpa veniam porro iste vel"
+      />
       <Container>
         <h1 className="sr-only" data-testid="home-heading">
           Tenzumusic blog
