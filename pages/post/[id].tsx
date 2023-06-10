@@ -58,10 +58,7 @@ export default function Page({
         <h1 className="text-2xl font-bold capitalize" data-testid="post-title">
           {post.title}
         </h1>
-        <p
-          data-testid="post-body"
-          className="whitespace-pre-wrap text-slate-500 dark:text-gray-400"
-        >
+        <p data-testid="post-body" className="whitespace-pre-wrap">
           {post.body}
         </p>
         <ul data-testid="post-comments" className="grid gap-1">

@@ -12,7 +12,7 @@ export const Comment = (props: { comment: IComment }) => {
       </div>
       <p
         data-testid="comment-body"
-        className="text-slate-500 dark:text-gray-500"
+        className="text-slate-500 dark:text-gray-400"
       >
         {comment.body}
       </p>
